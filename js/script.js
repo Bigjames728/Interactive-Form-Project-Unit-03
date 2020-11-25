@@ -32,10 +32,14 @@ design.addEventListener('change', (e) => {
 
     for ( let i = 0; i < colorOption.length; i++ ) {
         let value = e.target.value;
-        let jsPunShirts = document.getElementById('shirt-colors').getAttribute('js puns');
+        let shirtTheme = document.getElementById('shirt-colors').getAttribute('js puns');
+
+        if ( value === shirtTheme ) {
+
+        }
 
         console.log(value);
-        console.log(jsPunShirts);
+        console.log(shirtTheme);
     }
     
     
