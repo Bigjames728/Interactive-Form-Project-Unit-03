@@ -43,6 +43,7 @@ design.addEventListener('change', (e) => {
             color[i].removeAttribute('hidden');
         } else {
             color[i].setAttribute('hidden', 'hidden');
+            color.selectedIndex = 0;
         }
     }
 });
@@ -74,7 +75,7 @@ let paymentMethod = document.getElementById('payment');
 let creditCard = document.getElementById('credit-card');
 let paypal = document.getElementById('paypal');
 let bitcoin = document.getElementById('bitcoin');
-let secondChild = paymentMethod.children[0].children[1];
+let secondChild = paymentMethod.firstChild.firstChild;
 
 
 
@@ -82,6 +83,7 @@ let secondChild = paymentMethod.children[0].children[1];
 paypal.style.display = 'none';
 bitcoin.style.display = 'none';
 
+secondChild.setAttribute('selected', 'selected');
 
 
 
