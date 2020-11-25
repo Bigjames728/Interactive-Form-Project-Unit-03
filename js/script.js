@@ -42,18 +42,10 @@ design.addEventListener('change', (e) => {
         } else {
             color[i].setAttribute('hidden', 'hidden');
         }
-
-        console.log(value);
-        console.log(shirtTheme);
     }
-    
-    
-
 });
 
 
 
-console.log(design);
-console.log(color);
-console.log(colorOption);
+
 
