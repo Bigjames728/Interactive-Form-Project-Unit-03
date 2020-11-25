@@ -35,12 +35,12 @@ design.addEventListener('change', (e) => {
 
     for ( let i = 1; i < colorOption.length; i++ ) {
         let value = e.target.value;
-        let shirtTheme = document.getElementById('color').getAttribute('data-theme');
+        let shirtTheme = document.getElementById('color')[i].getAttribute('data-theme');
 
         if ( value === shirtTheme ) {
-            document.getElementById('color').removeAttribute('hidden');
+            color[i].removeAttribute('hidden');
         } else {
-            document.getElementById('color').setAttribute('hidden', 'hidden');
+            color[i].setAttribute('hidden', 'hidden');
         }
 
         console.log(value);
