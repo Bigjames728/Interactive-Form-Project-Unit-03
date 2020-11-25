@@ -21,3 +21,30 @@ jobRole.addEventListener('change', (e) => {
     }
 });
 
+let design = document.getElementById('design');
+let color = document.getElementById('color');
+let colorOption = document.getElementById('color').children;
+
+color.disabled = true;
+
+design.addEventListener('change', (e) => {
+    color.disabled = false;
+
+    for ( let i = 0; i < colorOption.length; i++ ) {
+        let value = e.target.value;
+        let jsPunShirts = document.getElementById('shirt-colors').getAttribute('js puns');
+
+        console.log(value);
+        console.log(jsPunShirts);
+    }
+    
+    
+
+});
+
+
+
+console.log(design);
+console.log(color);
+console.log(colorOption);
+
