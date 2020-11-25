@@ -38,9 +38,9 @@ design.addEventListener('change', (e) => {
         let shirtTheme = document.getElementById('color').getAttribute('data-theme');
 
         if ( value === shirtTheme ) {
-            
+            document.getElementById('color').removeAttribute('hidden');
         } else {
-            
+            document.getElementById('color').setAttribute('hidden', 'hidden');
         }
 
         console.log(value);
