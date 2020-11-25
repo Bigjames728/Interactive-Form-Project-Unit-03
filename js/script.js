@@ -1,3 +1,9 @@
+//  Project 3 - Interactive Form - Team Treehouse
+
+// Below I have set the first form input box to be in focus, hidden the "Other Job Role" text input box by default and 
+// created a change event listener to show the "Other Job Role" input box or keep it hidden based on the job selected 
+// in the "job role" selector.
+
 let name = document.getElementById("name");
 
 name.focus();
@@ -15,5 +21,3 @@ jobRole.addEventListener('change', (e) => {
     }
 });
 
-console.log(jobRole);
-console.log(otherJobRole);
