@@ -82,12 +82,27 @@ bitcoin.style.display = 'none';
 
 secondChild.setAttribute('selected', 'selected');
 
+paymentMethod.addEventListener('change', (e) => {
+    console.log(e.target.value);
+    if ( e.target.value === 'creditCard' ) {
+        creditCard.removeAttribute('hidden');
+        paypal.setAttribute('hidden', 'hidden');
+        bitcoin.setAttribute('hidden', 'hidden');
+    } else if ( e.target.value === 'paypal' ) {
+        paypal.removeAttribute('hidden');
+        creditCard.setAttribute('hidden', 'hidden');
+        bitcoin.setAttribute('hidden', 'hidden');
+    } else if ( e.target.value === 'bitcoin' ) {
+        bitcoin.removeAttribute('hidden');
+        creditCard.setAttribute('hidden', 'hidden');
+        paypal.setAttribute('hidden', 'hidden');
+    }
+});
 
 
 
 
 
-console.log(secondChild);
 
 
 
