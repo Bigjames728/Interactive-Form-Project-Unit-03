@@ -75,15 +75,15 @@ let paymentMethod = document.getElementById('payment');
 let creditCard = document.getElementById('credit-card');
 let paypal = document.getElementById('paypal');
 let bitcoin = document.getElementById('bitcoin');
-let secondChild = paymentMethod.firstChild.firstChild;
-
-
-
+let secondChild = paymentMethod.children[1];
 
 paypal.style.display = 'none';
 bitcoin.style.display = 'none';
 
 secondChild.setAttribute('selected', 'selected');
+
+
+
 
 
 
