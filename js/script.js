@@ -35,7 +35,7 @@ design.addEventListener('change', (e) => {
 
     for ( let i = 0; i < colorOption.length; i++ ) {
         let value = e.target.value;
-        let shirtTheme = document.getElementById('color').getAttribute('js puns');
+        let shirtTheme = document.getElementById('color').getAttribute('data-theme');
 
         if ( value === shirtTheme ) {
 
