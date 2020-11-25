@@ -25,6 +25,9 @@ let design = document.getElementById('design');
 let color = document.getElementById('color');
 let colorOption = document.getElementById('color').children;
 
+// Below I disabeled the color menu to then make it only appear once someone has chosen a theme for a shirt in the shirt theme menu.
+// Attempting to fix the addEventListener and if statement inside.
+
 color.disabled = true;
 
 design.addEventListener('change', (e) => {
