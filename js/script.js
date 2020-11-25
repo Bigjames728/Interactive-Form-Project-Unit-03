@@ -28,6 +28,8 @@ let colorOption = document.getElementById('color').children;
 // Below I disabeled the color menu to then make it only appear once someone has chosen a theme for a shirt in the shirt theme menu.
 // Attempting to fix the addEventListener and if statement inside.
 
+// Update: I fixed the below listener by adding [i] onto the shirtTheme variable as well as after color in the if statement. 
+
 color.disabled = true;
 
 design.addEventListener('change', (e) => {
@@ -45,6 +47,25 @@ design.addEventListener('change', (e) => {
     }
 });
 
+let registerForActivities = document.getElementById('activities');
+let activitiesCost = document.getElementById('activities-cost');
+let totalCost = 0;
+
+console.log(registerForActivities);
+console.log(activitiesCost);
+
+registerForActivities.addEventListener('change', (e) => {
+    let data_cost = e.target.getAttribute('data-cost');
+    data_cost = +data_cost;
+
+    if ( e.target.checked ) {
+        totalCost = totalCost + data_cost;
+    } else {
+        totalCost = totalCost - data_cost;
+    }
+
+    activitiesCost.innerHTML = `Total: $${totalCost}`;
+});
 
 
 
