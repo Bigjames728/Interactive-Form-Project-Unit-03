@@ -1,1 +1,4 @@
-console.log('test');
+let name = document.getElementById("name");
+
+name.focus();
+
