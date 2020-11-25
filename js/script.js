@@ -47,6 +47,9 @@ design.addEventListener('change', (e) => {
     }
 });
 
+// Below I created an eventListener on registerForActivities to listen for changes (checked or unchecked). I then set up an if statement to 
+// either add or subtract the total cost of the activity from the total based on if it is checked or unchecked. 
+
 let registerForActivities = document.getElementById('activities');
 let activitiesCost = document.getElementById('activities-cost');
 let totalCost = 0;
@@ -67,6 +70,22 @@ registerForActivities.addEventListener('change', (e) => {
     activitiesCost.innerHTML = `Total: $${totalCost}`;
 });
 
+let paymentMethod = document.getElementById('payment');
+let creditCard = document.getElementById('credit-card');
+let paypal = document.getElementById('paypal');
+let bitcoin = document.getElementById('bitcoin');
+let secondChild = paymentMethod.children[0].children[1];
+
+
+
+
+paypal.style.display = 'none';
+bitcoin.style.display = 'none';
+
+
+
+
+console.log(secondChild);
 
 
 
