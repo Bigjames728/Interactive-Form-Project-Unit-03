@@ -33,12 +33,14 @@ color.disabled = true;
 design.addEventListener('change', (e) => {
     color.disabled = false;
 
-    for ( let i = 0; i < colorOption.length; i++ ) {
+    for ( let i = 1; i < colorOption.length; i++ ) {
         let value = e.target.value;
         let shirtTheme = document.getElementById('color').getAttribute('data-theme');
 
         if ( value === shirtTheme ) {
-
+            
+        } else {
+            
         }
 
         console.log(value);
