@@ -107,7 +107,8 @@ paymentMethod.addEventListener('change', (e) => {
 });
 
 // Below I have created the form validation for the required fields. I'm still working on the test to check if there has been
-// a selection made in the Register for Activities section.
+// a selection made in the Register for Activities section. I also need to figure out how to make the credit card info required
+// ONLY when that is the selected method of payment.
 
 let emailAddress = document.getElementById('email');
 let cardNumber = document.getElementById('cc-num');
@@ -157,6 +158,29 @@ form.addEventListener('submit', (e) => {
     }
 
 });
+
+// Below I have referenced the checkbox input and stored it in the variable activities and added focus and blur event listeners
+// to that variable so that when tabbing through the different inputs, the checkboxes get a blue border when selected. I did this
+// by looping through all 7 checkbox inputs and adding a class of focus to the currently in use checkbox and removing that class
+// when that checkbox is no longer in focus.
+
+
+let activities = document.querySelectorAll('input[type="checkbox"]');
+
+console.log(activities);
+
+for ( let i = 0; i < activities.length; i++ ) {
+    activities[i].addEventListener('focus', (e) => {
+        e.target.parentNode.classList.add('focus');
+    });
+
+    activities[i].addEventListener('blur', (e) => {
+        e.target.parentNode.classList.remove('focus');
+    });
+};
+
+
+
 
 
 
