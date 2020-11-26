@@ -71,7 +71,9 @@ registerForActivities.addEventListener('change', (e) => {
     activitiesCost.innerHTML = `Total: $${totalCost}`;
 });
 
-
+// Below is the event listener for the paymentMethod element. I am trying to get the payment method a user selects to show while hiding the other
+// payment methods. I have set credit card as the default option by selecting it through paymentMethod children and selecting credit card with [1]
+// to get to the second child element of the paymentMethod element. 
 
 let paymentMethod = document.getElementById('payment');
 let creditCard = document.getElementById('credit-card');
