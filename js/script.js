@@ -144,10 +144,26 @@ form.addEventListener('submit', (e) => {
         name.parentNode.lastElementChild.style.display = 'none';
     } 
 
-    // Regist for activities test will go below once I figure it out.
-    // if ( !registerForActivities.checked ) {
-    //     e.preventDefault();
-    // }
+    
+// In the for loop below, I am supposed to target the parent element for the activities. This element is the fieldset element. Since
+// I referenced the fieldset element in the variable registerForActivities, I didn't use .parentNode because that is already the
+// parent element. 
+
+    let numberChecked = 0;
+    for (let i = 0; i < activities.length; i++) {
+        if (activities[i].checked === true) {
+            numberChecked += 1;
+            registerForActivities.classList.remove('not-valid');
+            registerForActivities.classList.add('valid');
+            registerForActivities.lastElementChild.style.display = 'none';
+        }
+        if (numberChecked === 0) {
+            e.preventDefault();
+            registerForActivities.classList.remove('valid');
+            registerForActivities.classList.add('not-valid');
+            registerForActivities.lastElementChild.style.display = 'block';
+        }
+    }
 
     if ( !emailTest ) {
         e.preventDefault();
