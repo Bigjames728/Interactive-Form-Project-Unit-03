@@ -106,9 +106,10 @@ paymentMethod.addEventListener('change', (e) => {
     }
 });
 
-// Below I have created the form validation for the required fields. I'm still working on the test to check if there has been
-// a selection made in the Register for Activities section. I also need to figure out how to make the credit card info required
-// ONLY when that is the selected method of payment.
+// Below I have created the form validation for the required fields. I have also added logic to better show errors if a user 
+// forgets one of the required fields. I'm still working on the test to check if there has been a selection made in the Register 
+// for Activities section. I also need to figure out how to make the credit card info required ONLY when that is the selected 
+// method of payment.
 
 let emailAddress = document.getElementById('email');
 let cardNumber = document.getElementById('cc-num');
@@ -134,6 +135,13 @@ form.addEventListener('submit', (e) => {
 
     if ( !nameTest ) {
         e.preventDefault();
+        name.parentNode.classList.remove('valid');
+        name.parentNode.classList.add('not-valid');
+        name.parentNode.lastElementChild.style.display = 'block';
+    } else {
+        name.parentNode.classList.remove('not-valid');
+        name.parentNode.classList.add('valid');
+        name.parentNode.lastElementChild.style.display = 'none';
     } 
 
     // Regist for activities test will go below once I figure it out.
@@ -143,18 +151,46 @@ form.addEventListener('submit', (e) => {
 
     if ( !emailTest ) {
         e.preventDefault();
+        emailAddress.parentNode.classList.remove('valid');
+        emailAddress.parentNode.classList.add('not-valid');
+        emailAddress.parentNode.lastElementChild.style.display = 'block';
+    } else {
+        emailAddress.parentNode.classList.remove('not-valid');
+        emailAddress.parentNode.classList.add('valid');
+        emailAddress.parentNode.lastElementChild.style.display = 'none';
     }
 
     if ( !cardNumberTest ) {
         e.preventDefault();
+        cardNumber.parentNode.classList.remove('valid');
+        cardNumber.parentNode.classList.add('not-valid');
+        cardNumber.parentNode.lastElementChild.style.display = 'block';
+    } else {
+        cardNumber.parentNode.classList.remove('not-valid');
+        cardNumber.parentNode.classList.add('valid');
+        cardNumber.parentNode.lastElementChild.style.display = 'none';
     }
 
     if ( !zipTest ) {
         e.preventDefault();
+        zipCode.parentNode.classList.remove('valid');
+        zipCode.parentNode.classList.add('not-valid');
+        zipCode.parentNode.lastElementChild.style.display = 'block';
+    } else {
+        zipCode.parentNode.classList.remove('not-valid');
+        zipCode.parentNode.classList.add('valid');
+        zipCode.parentNode.lastElementChild.style.display = 'none';
     }
 
     if ( !cvvTest ) {
         e.preventDefault();
+        cvv.parentNode.classList.remove('valid');
+        cvv.parentNode.classList.add('not-valid');
+        cvv.parentNode.lastElementChild.style.display = 'block';
+    } else {
+        cvv.parentNode.classList.remove('not-valid');
+        cvv.parentNode.classList.add('valid');
+        cvv.parentNode.lastElementChild.style.display = 'none';
     }
 
 });
