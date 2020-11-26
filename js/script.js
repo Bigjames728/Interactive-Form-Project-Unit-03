@@ -71,6 +71,8 @@ registerForActivities.addEventListener('change', (e) => {
     activitiesCost.innerHTML = `Total: $${totalCost}`;
 });
 
+
+
 let paymentMethod = document.getElementById('payment');
 let creditCard = document.getElementById('credit-card');
 let paypal = document.getElementById('paypal');
@@ -84,18 +86,18 @@ secondChild.setAttribute('selected', 'selected');
 
 paymentMethod.addEventListener('change', (e) => {
     console.log(e.target.value);
-    if ( e.target.value === 'creditCard' ) {
-        creditCard.removeAttribute('hidden');
-        paypal.setAttribute('hidden', 'hidden');
-        bitcoin.setAttribute('hidden', 'hidden');
-    } else if ( e.target.value === 'paypal' ) {
-        paypal.removeAttribute('hidden');
-        creditCard.setAttribute('hidden', 'hidden');
-        bitcoin.setAttribute('hidden', 'hidden');
-    } else if ( e.target.value === 'bitcoin' ) {
-        bitcoin.removeAttribute('hidden');
-        creditCard.setAttribute('hidden', 'hidden');
-        paypal.setAttribute('hidden', 'hidden');
+    if ( e.target.value === 'Credit Card' ) {
+        creditCard.style.display = 'block';
+        paypal.style.display = 'none';
+        bitcoin.style.display = 'none';
+    } else if ( e.target.value === 'PayPal' ) {
+        paypal.style.display = 'block';
+        creditCard.style.display = 'none';
+        bitcoin.style.display = 'none';
+    } else if ( e.target.value === 'Bitcoin' ) {
+        bitcoin.style.display = 'block';
+        creditCard.style.display = 'none';
+        paypal.style.display = 'none';
     }
 });
 
