@@ -75,6 +75,9 @@ registerForActivities.addEventListener('change', (e) => {
 // payment methods. I have set credit card as the default option by selecting it through paymentMethod children and selecting credit card with [1]
 // to get to the second child element of the paymentMethod element. 
 
+// Update: my error was not matching the exact id in the if statement. For instance, I had ( e.target.value === 'Credit Card' ) when it should
+// have been ( e.target.value === 'credit-card' ) because it has to match the exact id.
+
 let paymentMethod = document.getElementById('payment');
 let creditCard = document.getElementById('credit-card');
 let paypal = document.getElementById('paypal');
@@ -88,22 +91,72 @@ secondChild.setAttribute('selected', 'selected');
 
 paymentMethod.addEventListener('change', (e) => {
     console.log(e.target.value);
-    if ( e.target.value === 'Credit Card' ) {
+    if ( e.target.value === 'credit-card' ) {
         creditCard.style.display = 'block';
         paypal.style.display = 'none';
         bitcoin.style.display = 'none';
-    } else if ( e.target.value === 'PayPal' ) {
+    } else if ( e.target.value === 'paypal' ) {
         paypal.style.display = 'block';
         creditCard.style.display = 'none';
         bitcoin.style.display = 'none';
-    } else if ( e.target.value === 'Bitcoin' ) {
+    } else if ( e.target.value === 'bitcoin' ) {
         bitcoin.style.display = 'block';
         creditCard.style.display = 'none';
         paypal.style.display = 'none';
     }
 });
 
+// Below I have created the form validation for the required fields. I'm still working on the test to check if there has been
+// a selection made in the Register for Activities section.
 
+let emailAddress = document.getElementById('email');
+let cardNumber = document.getElementById('cc-num');
+let zipCode = document.getElementById('zip');
+let cvv = document.getElementById('cvv');
+let form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+    let nameValue = name.value;
+    let nameTest = /^[a-zA-Z]+$/i.test(nameValue);
+
+    let emailValue = emailAddress.value;
+    let emailTest = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/i.test(emailValue);
+
+    let cardValue = cardNumber.value;
+    let cardNumberTest = /^\d{4}\d{4}\d{4}\d{4}$/.test(cardValue);
+
+    let zipValue = zipCode.value;
+    let zipTest = /^\d{5}$/.test(zipValue);
+
+    let cvvValue = cvv.value;
+    let cvvTest = /^\d{3}$/.test(cvvValue);
+
+    if ( nameTest === false ) {
+        e.preventDefault();
+    } 
+
+    // Regist for activities test will go below once I figure it out.
+    // if ( !registerForActivities.checked ) {
+    //     e.preventDefault();
+    // }
+
+    if ( emailTest === false ) {
+        e.preventDefault();
+    }
+
+    if ( cardNumberTest === false ) {
+        e.preventDefault();
+    }
+
+    if ( zipTest === false ) {
+        e.preventDefault();
+    }
+
+    if ( cvvTest === false ) {
+        e.preventDefault();
+    }
+
+});
 
 
 
