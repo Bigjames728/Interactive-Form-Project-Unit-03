@@ -145,7 +145,7 @@ form.addEventListener('submit', (e) => {
     } 
 
     
-// In the for loop below, I am supposed to target the parent element for the activities. This element is the fieldset element. Since
+// In the for loop below, I am supposed to target the parent element for the activities. The parent element is the fieldset element. Since
 // I referenced the fieldset element in the variable registerForActivities, I didn't use .parentNode because that is already the
 // parent element. 
 
