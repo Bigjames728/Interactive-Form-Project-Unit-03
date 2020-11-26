@@ -131,7 +131,7 @@ form.addEventListener('submit', (e) => {
     let cvvValue = cvv.value;
     let cvvTest = /^\d{3}$/.test(cvvValue);
 
-    if ( nameTest === false ) {
+    if ( !nameTest ) {
         e.preventDefault();
     } 
 
@@ -140,19 +140,19 @@ form.addEventListener('submit', (e) => {
     //     e.preventDefault();
     // }
 
-    if ( emailTest === false ) {
+    if ( !emailTest ) {
         e.preventDefault();
     }
 
-    if ( cardNumberTest === false ) {
+    if ( !cardNumberTest ) {
         e.preventDefault();
     }
 
-    if ( zipTest === false ) {
+    if ( !zipTest ) {
         e.preventDefault();
     }
 
-    if ( cvvTest === false ) {
+    if ( !cvvTest ) {
         e.preventDefault();
     }
 
