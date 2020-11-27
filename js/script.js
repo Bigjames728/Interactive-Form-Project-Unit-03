@@ -176,6 +176,9 @@ form.addEventListener('submit', (e) => {
         emailAddress.parentNode.lastElementChild.style.display = 'none';
     }
 
+    // Can't get the below if statement to work correctly. I want it to only run validation if the credit card 
+    // payment method is selected.
+
     if ( paymentMethod.children[1].selected === true ) { 
         if ( !cardNumberTest ) {
             e.preventDefault();
