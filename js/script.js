@@ -125,7 +125,7 @@ form.addEventListener('submit', (e) => {
     let emailTest = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/i.test(emailValue);
 
     let cardValue = cardNumber.value;
-    let cardNumberTest = /^\d{4}\d{4}\d{4}\d{4}$/.test(cardValue);
+    let cardNumberTest = /^\b\d{11,16}\b$/.test(cardValue);
 
     let zipValue = zipCode.value;
     let zipTest = /^\d{5}$/.test(zipValue);
@@ -176,16 +176,18 @@ form.addEventListener('submit', (e) => {
         emailAddress.parentNode.lastElementChild.style.display = 'none';
     }
 
-    if ( !cardNumberTest ) {
-        e.preventDefault();
-        cardNumber.parentNode.classList.remove('valid');
-        cardNumber.parentNode.classList.add('not-valid');
-        cardNumber.parentNode.lastElementChild.style.display = 'block';
-    } else {
-        cardNumber.parentNode.classList.remove('not-valid');
-        cardNumber.parentNode.classList.add('valid');
-        cardNumber.parentNode.lastElementChild.style.display = 'none';
-    }
+    if ( paymentMethod.children[1].selected === true ) { 
+        if ( !cardNumberTest ) {
+            e.preventDefault();
+            cardNumber.parentNode.classList.remove('valid');
+            cardNumber.parentNode.classList.add('not-valid');
+            cardNumber.parentNode.lastElementChild.style.display = 'block';
+        } else {
+            cardNumber.parentNode.classList.remove('not-valid');
+            cardNumber.parentNode.classList.add('valid');
+            cardNumber.parentNode.lastElementChild.style.display = 'none';
+        }
+    }    
 
     if ( !zipTest ) {
         e.preventDefault();
