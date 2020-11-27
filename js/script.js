@@ -180,6 +180,7 @@ form.addEventListener('submit', (e) => {
     // payment method is selected.
 
     if ( paymentMethod.children[1].selected === true ) { 
+        
         if ( !cardNumberTest ) {
             e.preventDefault();
             cardNumber.parentNode.classList.remove('valid');
