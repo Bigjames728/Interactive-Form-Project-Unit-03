@@ -179,7 +179,7 @@ form.addEventListener('submit', (e) => {
     // Can't get the below if statement to work correctly. I want it to only run validation if the credit card 
     // payment method is selected.
 
-    if ( paymentMethod.value === 'credit-card' ) { 
+    if ( secondChild.selected === true ) { 
         
         if ( !cardNumberTest ) {
             e.preventDefault();
