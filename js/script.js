@@ -179,7 +179,7 @@ form.addEventListener('submit', (e) => {
     // Can't get the below if statement to work correctly. I want it to only run validation if the credit card 
     // payment method is selected.
 
-    if ( paymentMethod.children[1].selected === true ) { 
+    if ( paymentMethod.value === 'credit-card' ) { 
         
         if ( !cardNumberTest ) {
             e.preventDefault();
@@ -191,30 +191,30 @@ form.addEventListener('submit', (e) => {
             cardNumber.parentNode.classList.add('valid');
             cardNumber.parentNode.lastElementChild.style.display = 'none';
         }
-    }    
+        
 
-    if ( !zipTest ) {
-        e.preventDefault();
-        zipCode.parentNode.classList.remove('valid');
-        zipCode.parentNode.classList.add('not-valid');
-        zipCode.parentNode.lastElementChild.style.display = 'block';
-    } else {
-        zipCode.parentNode.classList.remove('not-valid');
-        zipCode.parentNode.classList.add('valid');
-        zipCode.parentNode.lastElementChild.style.display = 'none';
+        if ( !zipTest ) {
+            e.preventDefault();
+            zipCode.parentNode.classList.remove('valid');
+            zipCode.parentNode.classList.add('not-valid');
+            zipCode.parentNode.lastElementChild.style.display = 'block';
+        } else {
+            zipCode.parentNode.classList.remove('not-valid');
+            zipCode.parentNode.classList.add('valid');
+            zipCode.parentNode.lastElementChild.style.display = 'none';
+        }
+
+        if ( !cvvTest ) {
+            e.preventDefault();
+            cvv.parentNode.classList.remove('valid');
+            cvv.parentNode.classList.add('not-valid');
+            cvv.parentNode.lastElementChild.style.display = 'block';
+        } else {
+            cvv.parentNode.classList.remove('not-valid');
+            cvv.parentNode.classList.add('valid');
+            cvv.parentNode.lastElementChild.style.display = 'none';
+        }
     }
-
-    if ( !cvvTest ) {
-        e.preventDefault();
-        cvv.parentNode.classList.remove('valid');
-        cvv.parentNode.classList.add('not-valid');
-        cvv.parentNode.lastElementChild.style.display = 'block';
-    } else {
-        cvv.parentNode.classList.remove('not-valid');
-        cvv.parentNode.classList.add('valid');
-        cvv.parentNode.lastElementChild.style.display = 'none';
-    }
-
 });
 
 // Below I have referenced the checkbox input and stored it in the variable activities and added focus and blur event listeners
