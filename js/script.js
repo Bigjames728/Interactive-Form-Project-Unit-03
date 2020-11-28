@@ -147,7 +147,7 @@ form.addEventListener('submit', (e) => {
     
 // In the for loop below, I am supposed to target the parent element for the activities. The parent element is the fieldset element. Since
 // I referenced the fieldset element in the variable registerForActivities, I didn't use .parentNode because that is already the
-// parent element. 
+// parent element. Below, all of the if statements are being used to validate the inputs with regex to make sure no required fields are missing.
 
     let numberChecked = 0;
     for (let i = 0; i < activities.length; i++) {
@@ -176,9 +176,6 @@ form.addEventListener('submit', (e) => {
         emailAddress.parentNode.classList.add('valid');
         emailAddress.parentNode.lastElementChild.style.display = 'none';
     }
-
-    // Can't get the below if statement to work correctly. I want it to only run validation if the credit card 
-    // payment method is selected.
 
     if ( secondChild.selected === true ) { 
         
