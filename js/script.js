@@ -245,6 +245,9 @@ message.style.display = 'none';
 message.insertAdjacentHTML('beforeend', '<p id="messageText"></p>');
 let messageText = document.querySelector('#messageText');
 messageText.style.color = 'red';
+messageText.style.border = '1px solid red';
+messageText.style.padding = '9px';
+
 
 cardNumber.addEventListener('keyup', (e) => {
     if ( e.target.value.length < 11 || e.target.value.length > 16) {
