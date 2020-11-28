@@ -235,6 +235,30 @@ for ( let i = 0; i < activities.length; i++ ) {
     });
 };
 
+// Extra credit for real-time error message using a 'keyup' listener.
+
+
+let message = document.createElement('div');
+let paymentMethodBox = document.querySelector('.payment-methods');
+paymentMethodBox.appendChild(message);
+message.style.display = 'none';
+message.insertAdjacentHTML('beforeend', '<p id="messageText"></p>');
+let messageText = document.querySelector('#messageText');
+messageText.style.color = 'red';
+
+cardNumber.addEventListener('keyup', (e) => {
+    if ( e.target.value.length < 11 || e.target.value.length > 16) {
+        console.log(e.target.value);
+        message.style.display = '';
+        messageText.innerHTML = 'Please enter a number that is between 11 and 16 digits long.';
+    } else {
+    
+        message.style.display = 'none';
+    }
+});
+
+
+
 
 
 
