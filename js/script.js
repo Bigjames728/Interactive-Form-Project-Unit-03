@@ -156,13 +156,14 @@ form.addEventListener('submit', (e) => {
             registerForActivities.classList.remove('not-valid');
             registerForActivities.classList.add('valid');
             registerForActivities.lastElementChild.style.display = 'none';
-        }
-        if (numberChecked === 0) {
-            e.preventDefault();
-            registerForActivities.classList.remove('valid');
-            registerForActivities.classList.add('not-valid');
-            registerForActivities.lastElementChild.style.display = 'block';
-        }
+        }   
+    }
+
+    if (numberChecked === 0) {
+        e.preventDefault();
+        registerForActivities.classList.remove('valid');
+        registerForActivities.classList.add('not-valid');
+        registerForActivities.lastElementChild.style.display = 'block';
     }
 
     if ( !emailTest ) {
