@@ -125,7 +125,7 @@ form.addEventListener('submit', (e) => {
     let emailTest = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/i.test(emailValue);
 
     let cardValue = cardNumber.value;
-    let cardNumberTest = /^\b\d{11,16}\b$/.test(cardValue);
+    let cardNumberTest = /^\b\d{13,16}\b$/.test(cardValue);
 
     let zipValue = zipCode.value;
     let zipTest = /^\d{5}$/.test(zipValue);
@@ -250,15 +250,40 @@ messageText.style.padding = '9px';
 
 
 cardNumber.addEventListener('keyup', (e) => {
-    if ( e.target.value.length < 11 || e.target.value.length > 16) {
+    if ( e.target.value.length < 13 || e.target.value.length > 16) {
         console.log(e.target.value);
         message.style.display = '';
-        messageText.innerHTML = 'Please enter a number that is between 11 and 16 digits long.';
+        messageText.innerHTML = 'Please enter a number that is between 13 and 16 digits long.';
     } else {
     
         message.style.display = 'none';
     }
 });
+
+// Extra credit for a conditional error message for the email input
+
+let basicInfoBox = document.querySelector('.basic-info-and-shirt-box');
+let emailMessage = document.createElement('div');
+basicInfoBox.appendChild(emailMessage);
+emailMessage.style.display = 'none';
+emailMessage.insertAdjacentHTML('beforeend', '<p id="emailMessageText"></p>');
+let emailMessageText = document.getElementById('emailMessageText');
+emailMessageText.style.color = 'red';
+emailMessageText.style.border = '1px solid red';
+emailMessageText.style.padding = '9px';
+
+
+form.addEventListener('submit', (e) => {
+    e.target = emailAddress;
+    if ( emailAddress.value === '' ) {
+        emailMessage.style.display = '';
+        emailMessageText.innerHTML = 'An email address is required to move forward with registration.';
+    } else {
+        emailMessage.style.display = 'none';
+    }
+});
+
+
 
 
 
