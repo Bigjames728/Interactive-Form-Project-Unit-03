@@ -283,6 +283,8 @@ form.addEventListener('submit', (e) => {
     }
 });
 
+// Extra credit: Prevent users from registering for conflicting activities
+
 
 
 
