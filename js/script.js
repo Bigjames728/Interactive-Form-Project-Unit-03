@@ -126,7 +126,7 @@ let form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
     let nameValue = name.value;
-    let nameTest = /^[a-zA-Z]+$/i.test(nameValue);
+    let nameTest = /^[a-z ,.'-]+$/i.test(nameValue);
 
     let emailValue = emailAddress.value;
     let emailTest = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/i.test(emailValue);
