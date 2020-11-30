@@ -24,16 +24,23 @@ jobRole.addEventListener('change', (e) => {
 let design = document.getElementById('design');
 let color = document.getElementById('color');
 let colorOption = document.getElementById('color').children;
+let shirtColorsDiv = document.getElementById('shirt-colors');
 
 // Below I disabeled the color menu to then make it only appear once someone has chosen a theme for a shirt in the shirt theme menu.
 // Attempting to fix the addEventListener and if statement inside.
 
 // Update: I fixed the below listener by adding [i] onto the shirtTheme variable as well as after color in the if statement. 
 
-color.disabled = true;
+
+shirtColorsDiv.style.display = 'none';
+
+
+
 
 design.addEventListener('change', (e) => {
-    color.disabled = false;
+    shirtColorsDiv.style.display = '';
+    
+
 
     for ( let i = 1; i < colorOption.length; i++ ) {
         let value = e.target.value;
