@@ -292,8 +292,30 @@ form.addEventListener('submit', (e) => {
 
 // Extra credit: Prevent users from registering for conflicting activities
 
+let checkboxes = document.querySelectorAll('.activities input');
 
 
+
+registerForActivities.addEventListener('change', (e) => {
+    let clicked = e.target;
+    let clickedType = clicked.getAttribute('data-day-and-time');
+    
+    for ( let i = 0; i < checkboxes.length; i++ ) {
+        let checkboxType = checkboxes[i].getAttribute('data-day-and-time');
+        if ( checkboxType === clickedType && clicked !== checkboxes[i] ) {
+            if ( clicked.checked ) {
+                checkboxes[i].disabled = true; 
+            } else {
+                checkboxes[i].disabled = false;
+            }
+        }
+    }
+    
+});
+
+// registerForActivities.addEventListener('change', (e) => {
+//     if ( e.target.data-day )
+// });
 
 
 
