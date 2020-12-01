@@ -294,8 +294,6 @@ form.addEventListener('submit', (e) => {
 
 let checkboxes = document.querySelectorAll('.activities input');
 
-
-
 registerForActivities.addEventListener('change', (e) => {
     let clicked = e.target;
     let clickedType = clicked.getAttribute('data-day-and-time');
@@ -312,7 +310,6 @@ registerForActivities.addEventListener('change', (e) => {
     }
     
 });
-
 
 
 
