@@ -313,9 +313,7 @@ registerForActivities.addEventListener('change', (e) => {
     
 });
 
-// registerForActivities.addEventListener('change', (e) => {
-//     if ( e.target.data-day )
-// });
+
 
 
 
