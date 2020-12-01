@@ -155,6 +155,7 @@ form.addEventListener('submit', (e) => {
 // In the for loop below, I am supposed to target the parent element for the activities. The parent element is the fieldset element. Since
 // I referenced the fieldset element in the variable registerForActivities, I didn't use .parentNode because that is already the
 // parent element. Below, all of the if statements are being used to validate the inputs with regex to make sure no required fields are missing.
+// I've also implemented the extra credit conditional error message in the email test if statement.
 
     let numberChecked = 0;
     for (let i = 0; i < activities.length; i++) {
@@ -173,11 +174,18 @@ form.addEventListener('submit', (e) => {
         registerForActivities.lastElementChild.style.display = 'block';
     }
 
-    if ( !emailTest ) {
+    if ( !emailTest && emailAddress.value != '' ) {
         e.preventDefault();
         emailAddress.parentNode.classList.remove('valid');
         emailAddress.parentNode.classList.add('not-valid');
         emailAddress.parentNode.lastElementChild.style.display = 'block';
+    } else if ( emailAddress.value === '' ){
+        let originalEmailErrorMessage = document.querySelector('#email-hint').textContent;
+        e.preventDefault();
+        emailAddress.parentNode.classList.remove('valid');
+        emailAddress.parentNode.classList.add('not-valid');
+        originalEmailErrorMessage.textContent = 'An email address is required to move forward with registration.';
+
     } else {
         emailAddress.parentNode.classList.remove('not-valid');
         emailAddress.parentNode.classList.add('valid');
@@ -264,29 +272,6 @@ cardNumber.addEventListener('keyup', (e) => {
     } else {
     
         message.style.display = 'none';
-    }
-});
-
-// Extra credit for a conditional error message for the email input
-
-let basicInfoBox = document.querySelector('.basic-info-and-shirt-box');
-let emailMessage = document.createElement('div');
-basicInfoBox.appendChild(emailMessage);
-emailMessage.style.display = 'none';
-emailMessage.insertAdjacentHTML('beforeend', '<p id="emailMessageText"></p>');
-let emailMessageText = document.getElementById('emailMessageText');
-emailMessageText.style.color = 'red';
-emailMessageText.style.border = '1px solid red';
-emailMessageText.style.padding = '9px';
-
-
-form.addEventListener('submit', (e) => {
-    e.target = emailAddress;
-    if ( emailAddress.value === '' ) {
-        emailMessage.style.display = '';
-        emailMessageText.innerHTML = 'An email address is required to move forward with registration.';
-    } else {
-        emailMessage.style.display = 'none';
     }
 });
 
