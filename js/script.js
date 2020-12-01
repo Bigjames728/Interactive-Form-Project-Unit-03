@@ -194,7 +194,7 @@ form.addEventListener('submit', (e) => {
         emailAddress.parentNode.classList.add('not-valid');
         emailMessage.style.display = '';
         emailMessageText.innerHTML = 'An email address is required to move forward with registration.';
-    } else if ( emailValue != '' && !emailTest ) {
+    } else if ( !emailTest ) {
         e.preventDefault();
         emailMessage.style.display = 'none';
         emailAddress.parentNode.classList.remove('valid');
