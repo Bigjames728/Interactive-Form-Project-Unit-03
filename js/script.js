@@ -174,24 +174,40 @@ form.addEventListener('submit', (e) => {
         registerForActivities.lastElementChild.style.display = 'block';
     }
 
+    // Can't get the conditional error below to work.
 
-    if ( !emailTest && emailAddress.value != '' ) {
+    let basicInfoBox = document.querySelector('.basic-info-and-shirt-box');
+    let emailMessage = document.createElement('div');
+    basicInfoBox.appendChild(emailMessage);
+    emailMessage.style.display = 'none';
+    emailMessage.insertAdjacentHTML('beforeend', '<p id="emailMessageText"></p>');
+    let emailMessageText = document.getElementById('emailMessageText');
+    emailMessageText.style.color = 'red';
+    emailMessageText.style.border = '1px solid red';
+    emailMessageText.style.padding = '9px';
+
+    
+
+    if ( emailValue === '' ) {
         e.preventDefault();
+        emailAddress.parentNode.classList.remove('valid');
+        emailAddress.parentNode.classList.add('not-valid');
+        emailMessage.style.display = '';
+        emailMessageText.innerHTML = 'An email address is required to move forward with registration.';
+    } else if ( emailValue != '' && !emailTest ) {
+        e.preventDefault();
+        emailMessage.style.display = 'none';
         emailAddress.parentNode.classList.remove('valid');
         emailAddress.parentNode.classList.add('not-valid');
         emailAddress.parentNode.lastElementChild.style.display = 'block';
-    } else if ( emailAddress.value === '' ){
-        let originalEmailErrorMessage = document.querySelector('#email-hint').textContent;
-        e.preventDefault();
-        emailAddress.parentNode.classList.remove('valid');
-        emailAddress.parentNode.classList.add('not-valid');
-        originalEmailErrorMessage.textContent = 'An email address is required to move forward with registration.';
-
     } else {
         emailAddress.parentNode.classList.remove('not-valid');
         emailAddress.parentNode.classList.add('valid');
         emailAddress.parentNode.lastElementChild.style.display = 'none';
+        emailMessageText.style.display = 'none';
     }
+
+    // Can't get the conditional error above to work.
 
     if ( secondChild.selected === true ) { 
         
