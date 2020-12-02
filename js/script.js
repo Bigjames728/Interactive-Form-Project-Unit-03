@@ -201,12 +201,12 @@ form.addEventListener('submit', (e) => {
         e.preventDefault();
         emailAddress.parentNode.classList.remove('valid');
         emailAddress.parentNode.classList.add('not-valid');
+        emailErrorSpan.textContent = 'Email address must be formatted correctly.';
         emailErrorSpan.style.display = 'block';
     } else {
         emailAddress.parentNode.classList.remove('not-valid');
         emailAddress.parentNode.classList.add('valid');
         emailAddress.parentNode.lastElementChild.style.display = 'none';
-        
     }
 
     // Can't get the conditional error above to work.
